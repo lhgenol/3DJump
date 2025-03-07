@@ -123,7 +123,6 @@ public class PlayerController : MonoBehaviour
             {
                 return true;    // 하나라도 닿으면 바닥에 있는 것으로 판단하고 true 반환
             }
-
         }
         
         return false;   // 모든 레이가 바닥에 닿지 않으면 false 반환
