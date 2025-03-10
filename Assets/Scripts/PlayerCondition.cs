@@ -13,8 +13,8 @@ public class PlayerCondition : MonoBehaviour
     
     void Update()
     {
-        jump.Add(jump.passiveValue * Time.deltaTime);           // 배고픔이 지속적으로 감소
-        stamina.Subtrack(stamina.passiveValue * Time.deltaTime);     // 스태미나는 지속적으로 증가
+        jump.Add(jump.passiveValue * Time.deltaTime);           // 점프 지속적으로 증가
+        stamina.Add(stamina.passiveValue * Time.deltaTime);     // 스태미나 지속적으로 증가
         
         if (health.curValue == 0f)      // 체력이 0이 되면
         {
@@ -26,5 +26,11 @@ public class PlayerCondition : MonoBehaviour
     public void Die()
     {
         Debug.Log("죽었다!");
+    }
+    
+    // 체력 회복 기능
+    public void Heal(float amount)
+    {
+        health.Add(amount);
     }
 }

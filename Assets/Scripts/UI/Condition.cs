@@ -24,7 +24,7 @@ public class Condition : MonoBehaviour
     // 현재 값이 전체 값에서 몇 %인지 계산해 반환하는 함수
     float GetPercentage()
     {
-        return curValue / maxValue;       // 현재 값을 초기 값으로 나눈 백분율
+        return curValue / startValue;       // 현재 값을 초기 값으로 나눈 백분율
     }
     
     // 상태 값을 추가하는 함수 (체력 회복 등)

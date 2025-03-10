@@ -23,14 +23,30 @@ public class PlayerController : MonoBehaviour
     //public Action inventory;
     private Rigidbody _rigidbody;       // 플레이어의 Rigidbody
     
+    public PlayerCondition playerCondition; // 상태 관리 클래스 참조
+    public UICondition uiCondition;     // UI 상태 데이터
+    private int jumpCount = 0; // 현재 점프 횟수 (최대 3번 가능)
+    
+    Condition jump { get { return playerCondition.uiCondition.jump; } } // 점프 상태 가져오기
+    
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>(); // Rigidbody 컴포넌트 가져오기
+        
+        if (uiCondition == null)
+        {
+            uiCondition = FindObjectOfType<UICondition>();
+        }
     }
     
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;   // 시작하면 커서는 락 모드. 마우스 커서를 잠가서 화면 중앙에 고정
+
+        if (playerCondition == null)
+        {
+            playerCondition = GetComponent<PlayerCondition>(); // 자동으로 가져오기
+        }
     }
     
     void FixedUpdate()
@@ -97,11 +113,33 @@ public class PlayerController : MonoBehaviour
     // 점프 입력 처리
     public void OnJump(InputAction.CallbackContext context)
     {
-        // 키를 눌렀고 플레이어가 바닥에 있는 상태라면
-        if (context.phase == InputActionPhase.Started && isGrounded())
+        // 키를 눌렀고 점프 게이지가 33보다 크거나 같다면
+        if (context.phase == InputActionPhase.Started)
         {
-            // 위 방향으로 순간적인 힘을 가함. 순간적으로 힘을 줄 수 있게 Impulse로 설정
-            _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+            // 점프 가능 조건: 점프 횟수가 3 이하이고, 점프 게이지가 충분하다면
+            if (jumpCount < 3 && jump.curValue >= 33)
+            {
+                jump.Subtrack(33);  // 점프할 때마다 33 감소
+                // 위 방향으로 순간적인 힘을 가함. 순간적으로 힘을 줄 수 있게 Impulse로 설정
+                _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+                jumpCount++;        // 점프 횟수 증가
+                
+                Debug.Log($"✅ 점프! (현재 점프 횟수: {jumpCount})");
+            }
+            else
+            {
+                Debug.Log("❌ 점프 불가: 최대 점프 횟수 초과 또는 게이지 부족");
+            }
+        }
+    }
+    
+    // 바닥에 닿았을 때 점프 횟수 초기화
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (((1 << collision.gameObject.layer) & groundLayerMask) != 0)  
+        {
+            jumpCount = 0; // 바닥에 닿으면 점프 횟수 초기화
+            Debug.Log("🔄 바닥에 착지: 점프 횟수 초기화");
         }
     }
     
