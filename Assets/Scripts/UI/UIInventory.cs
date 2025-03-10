@@ -285,4 +285,41 @@ public class UIInventory : MonoBehaviour
     
         UpdateUI(); // 인벤토리 UI 갱신
     }
+    
+    public void OnEquipButton()
+    {
+        // 현재 장착 중인 장비가 있다면 먼저 해제
+        if (slots[curEquipIndex].equipped)
+        {
+            UnEquip(curEquipIndex);
+        }
+        
+        slots[selectedItemIndex].equipped = true;   // 장착이 안 되어있다면 true. 선택한 아이템을 장착 상태로 변경
+        curEquipIndex = selectedItemIndex;          // 현재 장착된 아이템 인덱스를 갱신
+        
+        CharacterManager.Instance.Player.equip.EquipNew(selectedItem);  // 플레이어의 장비 시스템을 통해 장비 장착 실행
+        UpdateUI(); // UI 갱신
+        
+        SelectItem(selectedItemIndex);  // 선택한 아이템을 다시 표시하여 상태 업데이트
+    }
+    
+    // 장비 해제
+    void UnEquip(int index)
+    {
+        slots[index].equipped = false; // 해당 아이템의 장착 상태를 해제
+        CharacterManager.Instance.Player.equip.UnEquip(); // 플레이어의 장비 시스템에서 해제 실행
+        UpdateUI(); // UI 갱신
+    
+        // 선택한 아이템이 해제된 아이템과 같다면 다시 선택하여 상태 업데이트
+        if (selectedItemIndex == index)
+        {
+            SelectItem(selectedItemIndex);
+        }
+    }
+    
+    // 장비 해제 버튼
+    public void OnUnEquipButton()
+    {
+        UnEquip(selectedItemIndex); // 현재 선택한 아이템을 해제
+    }
 }

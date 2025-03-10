@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6121230772548524743}
   serializedVersion: 2
   m_LocalRotation: {x: 0.8042057, y: 0.5748382, z: -0.15026473, w: -0.015316805}
-  m_LocalPosition: {x: 0.486, y: -0.15195012, z: 0.74241424}
+  m_LocalPosition: {x: 0.481, y: -0.17, z: 0.74241424}
   m_LocalScale: {x: 55, y: 55, z: 55}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6464815656927595625}
   - component: {fileID: 2960228786357752934}
+  - component: {fileID: 4259902859182347922}
   m_Layer: 8
   m_Name: Equip_Stone
   m_TagString: Untagged
@@ -137,3 +138,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.62732995, y: 0.27321374, z: 0.2256456}
   m_Center: {x: 0.063624606, y: -0.048192203, z: 0.17751631}
+--- !u!114 &4259902859182347922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6133821091773704456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93b8be51717e4a05807bc932d2e962b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRate: 0
+  attackDistance: 0
+  useStamina: 0
+  doesGatherResources: 0
+  doesDealDamage: 0
+  damage: 0

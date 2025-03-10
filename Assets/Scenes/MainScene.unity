@@ -1023,6 +1023,7 @@ GameObject:
   - component: {fileID: 604498326}
   - component: {fileID: 604498329}
   - component: {fileID: 604498330}
+  - component: {fileID: 604498331}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -1135,6 +1136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   condition: {fileID: 0}
+  equip: {fileID: 0}
   itemData: {fileID: 0}
   dropPosition: {fileID: 569729087}
 --- !u!114 &604498328
@@ -1243,7 +1245,19 @@ MonoBehaviour:
     m_ActionId: efaba7e5-80c4-4331-8e18-395d00758ec2
     m_ActionName: Player/Interaction[/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 604498322}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 89e99ba5-086c-43d8-ace9-a9108bc70139
     m_ActionName: Player/Attack[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
@@ -1283,6 +1297,20 @@ MonoBehaviour:
     m_Bits: 128
   curInteractGameObject: {fileID: 0}
   promptText: {fileID: 956632072}
+--- !u!114 &604498331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604498322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a531222d19cf406f903faa274ece06b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curEquip: {fileID: 0}
+  equipParent: {fileID: 846297923}
 --- !u!1 &606745422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,7 +1393,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 606745425}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1170883977}
+        m_TargetAssemblyTypeName: UIInventory, Assembly-CSharp
+        m_MethodName: OnEquipButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &606745425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2213,8 +2253,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1451001152594427408}
+  m_Children: []
   m_Father: {fileID: 864651696}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &846297924
@@ -4880,7 +4919,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1766753833}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1170883977}
+        m_TargetAssemblyTypeName: UIInventory, Assembly-CSharp
+        m_MethodName: OnUnEquipButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1766753833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11774,76 +11825,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1001 &1451001152594427407
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 846297923}
-    m_Modifications:
-    - target: {fileID: 3902908305637213867, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.481
-      objectReference: {fileID: 0}
-    - target: {fileID: 3902908305637213867, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 6133821091773704456, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_Name
-      value: Equip_Stone
-      objectReference: {fileID: 0}
-    - target: {fileID: 6464815656927595625, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6464815656927595625, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6464815656927595625, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6464815656927595625, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6464815656927595625, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6464815656927595625, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6464815656927595625, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6464815656927595625, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6464815656927595625, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6464815656927595625, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
---- !u!4 &1451001152594427408 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6464815656927595625, guid: a17e0012a91c94c3e8d3fc6594b493f5, type: 3}
-  m_PrefabInstance: {fileID: 1451001152594427407}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4067670033299925713
 PrefabInstance:
   m_ObjectHideFlags: 0
