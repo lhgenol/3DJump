@@ -187,4 +187,10 @@ public class PlayerController : MonoBehaviour
         
         canLook = !toggle;     // canLook 변수는 토글 값과 반대로 세팅
     }
+    
+    public void ResetJumpCount()
+    {
+        jumpCount = 0; // 점프 횟수 초기화
+        Debug.Log("점프대에서 점프 횟수 초기화");
+    }
 }
