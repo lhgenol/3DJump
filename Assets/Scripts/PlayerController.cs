@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// 플레이어의 이동 및 시점 조작을 담당하는 클래스
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
@@ -20,11 +22,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 mouseDelta;         // 마우스 이동 값
     public bool canLook = true;         // 인벤토리를 켰을 땐 커서가 보여야 함
     
-    //public Action inventory;
+    public Action inventory;            // 델리게이트
     private Rigidbody _rigidbody;       // 플레이어의 Rigidbody
     
     public PlayerCondition playerCondition; // 상태 관리 클래스 참조
     public UICondition uiCondition;     // UI 상태 데이터
+    
     private int jumpCount = 0; // 현재 점프 횟수 (최대 3번 가능)
     
     Condition jump { get { return playerCondition.uiCondition.jump; } } // 점프 상태 가져오기
@@ -164,5 +167,24 @@ public class PlayerController : MonoBehaviour
         }
         
         return false;   // 모든 레이가 바닥에 닿지 않으면 false 반환
+    }
+    
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            inventory?.Invoke();    // 인벤토리 액션에 있는 함수 호출
+            toggleCursor();
+        }
+    }
+    
+    void toggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;   // 락이 걸려 있다는 것은 인벤토리가 아직 안열려 있다는 것.
+        
+        // 토글이 true라면(락이 되어있다면) None으로 만들어 주고 CursorLockMode가 false, 즉 None이라면 락
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        
+        canLook = !toggle;     // canLook 변수는 토글 값과 반대로 세팅
     }
 }

@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: Item_Burger
   m_EditorClassIdentifier: 
   displayName: "[\uD584\uBC84\uAC70]"
-  description: "\uC601\uC591\uB9CC\uC810 \uBC84\uAC70. \uC12D\uCDE8\uD558\uBA74 \uC21C\uAC04\uC801\uC73C\uB85C
+  description: "\uC601\uC591\uB9CC\uC810 \uBC84\uAC70. \uC12D\uCDE8\uD558\uBA74 5\uCD08\uAC04
     \uC810\uD504\uB825\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-  type: 0
+  type: 1
   icon: {fileID: 21300000, guid: 440ebc3c314ce40729ef26c3f14b940a, type: 3}
   dropPrefab: {fileID: 7000240176903034236, guid: a7e6a1f49600d4007aeddf10dc1e808b, type: 3}
   canStack: 1
   maxStackAmount: 6
-  consumables: []
+  consumables:
+  - type: 0
+    value: 0
+  - type: 1
+    value: 100
   equipPrefab: {fileID: 0}

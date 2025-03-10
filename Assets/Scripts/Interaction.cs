@@ -20,6 +20,11 @@ public class Interaction : MonoBehaviour
     void Start()
     {
         camera = Camera.main;   // 현재 씬에서 MainCamera를 가져옴
+        
+        if (promptText == null)
+        {
+            Debug.LogError("promptText가 설정되지 않았습니다! UI 오브젝트를 연결하세요.");
+        }
     }
     
     void Update()

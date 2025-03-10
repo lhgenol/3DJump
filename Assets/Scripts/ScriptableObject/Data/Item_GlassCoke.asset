@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: Item_GlassCoke
   m_EditorClassIdentifier: 
   displayName: "[\uCF5C\uB77C]"
-  description: "\uC2DC\uC6D0\uD55C \uCF5C\uB77C. \uB9C8\uC2DC\uBA74 \uC21C\uAC04\uC801\uC73C\uB85C
+  description: "\uC2DC\uC6D0\uD55C \uCF5C\uB77C. \uB9C8\uC2DC\uBA74 5\uCD08\uAC04
     \uC2A4\uD53C\uB4DC\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."
   type: 1
   icon: {fileID: 21300000, guid: 501a6260835ec44a6bca26bde9db1913, type: 3}
   dropPrefab: {fileID: 5950456587654112606, guid: ab0fffefbf65a44a2b2506e2d46c0c07, type: 3}
   canStack: 1
   maxStackAmount: 6
-  consumables: []
+  consumables:
+  - type: 0
+    value: 5
+  - type: 0
+    value: 0
   equipPrefab: {fileID: 0}

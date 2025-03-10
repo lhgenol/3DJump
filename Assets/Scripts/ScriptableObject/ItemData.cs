@@ -14,7 +14,7 @@ public enum ItemType
 // 소비형 아이템의 효과 유형을 정의하는 열거형
 public enum ConsumableType  
 {
-    Health,     // 체력을 회복하는 아이템
+    //Health,     // 체력을 회복하는 아이템
     SpeedUp,    // 스피드를 올려주는 아이템
     JumpUp      // 점프력을 올려주는 아이템
 }
