@@ -179,4 +179,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 635f4f353280d421aa34fc57930be42d, type: 2}
-  jumpForce: 1000
+  jumpForce: 900
