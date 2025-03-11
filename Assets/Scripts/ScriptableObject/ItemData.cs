@@ -42,7 +42,7 @@ public class ItemData : ScriptableObject
     public int maxStackAmount; // 한 슬롯에 최대 몇 개까지 쌓을 수 있는지
     
     [Header("Consumable")]
-    public ItemDataConsumable[] consumables;    // 소비형 아이템이 여러 개의 효과를 가질 수 있도록 배열로 저장 (ex. 체력 + 배고픔 회복)
+    public ItemDataConsumable[] consumables;    // 소비형 아이템이 여러 개의 효과를 가질 수 있도록 배열로 저장 (ex. 스피드 + 점프력)
     
     [Header("Equip")]
     public GameObject equipPrefab;  // 장착 아이템 프리팹 정보

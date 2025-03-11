@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    // 플레이어가 바닥에 있는지 확인하는 함수
+    // 플레이어가 바닥에 있는지 확인하는 함수 (연속 점프할 거여서 안 씀)
     bool isGrounded()
     {
         Ray[] rays = new Ray[4]     // 네 개의 Ray를 사용하여 플레이어가 바닥에 닿았는지 확인
