@@ -8,8 +8,8 @@ public class Condition : MonoBehaviour
     public float curValue;      // 현재 상태 값
     public float startValue;    // 게임 시작 시 초기 값
     public float maxValue;      // 상태 최대 값 (최대 체력)
-    public float passiveValue;  // 주기적으로 변하는 값 (예: 배고픔 감소량)
-    public Image uiBar;         // UI 바 (체력, 배고픔 바 등)
+    public float passiveValue;  // 주기적으로 변하는 값 (예: 점프 게이지)
+    public Image uiBar;         // UI 바 (체력, 점프 바 등)
     
     void Start()
     {

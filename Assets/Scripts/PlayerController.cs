@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;       // 플레이어의 Rigidbody
     
     public PlayerCondition playerCondition; // 상태 관리 클래스 참조
-    public UICondition uiCondition;     // UI 상태 데이터
+    public UICondition uiCondition;         // UI 상태 데이터
     
     private int jumpCount = 0; // 현재 점프 횟수 (최대 3번 가능)
     
@@ -127,11 +127,11 @@ public class PlayerController : MonoBehaviour
                 _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
                 jumpCount++;        // 점프 횟수 증가
                 
-                Debug.Log($"✅ 점프! (현재 점프 횟수: {jumpCount})");
+                Debug.Log($"점프! (현재 점프 횟수: {jumpCount})");
             }
             else
             {
-                Debug.Log("❌ 점프 불가: 최대 점프 횟수 초과 또는 게이지 부족");
+                Debug.Log("점프 불가: 최대 점프 횟수 초과 또는 게이지 부족");
             }
         }
     }
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
         if (((1 << collision.gameObject.layer) & groundLayerMask) != 0)  
         {
             jumpCount = 0; // 바닥에 닿으면 점프 횟수 초기화
-            Debug.Log("🔄 바닥에 착지: 점프 횟수 초기화");
+            Debug.Log("바닥에 착지! 점프 횟수 초기화");
         }
     }
     

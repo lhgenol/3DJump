@@ -9,7 +9,7 @@ public class Equipment : MonoBehaviour
     public Transform equipParent;   // 장비를 달아줄 위치 (카메라 위치)
 
     private PlayerController controller;    // 플레이어 컨트롤러 (입력 제어)
-    private PlayerCondition condition;      // 플레이어 상태 (체력, 배고픔 등)
+    private PlayerCondition condition;      // 플레이어 상태 (체력 등)
     
     void Start()
     {

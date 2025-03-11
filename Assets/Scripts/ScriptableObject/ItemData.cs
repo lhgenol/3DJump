@@ -14,7 +14,6 @@ public enum ItemType
 // 소비형 아이템의 효과 유형을 정의하는 열거형
 public enum ConsumableType  
 {
-    //Health,     // 체력을 회복하는 아이템
     SpeedUp,    // 스피드를 올려주는 아이템
     JumpUp      // 점프력을 올려주는 아이템
 }
@@ -23,7 +22,7 @@ public enum ConsumableType
 [Serializable]  // 인스펙터에서 보이도록 설정
 public class ItemDataConsumable
 {
-    public ConsumableType type; // 아이템이 체력/스피드/점프력 중 어떤 효과를 가지는지 결정
+    public ConsumableType type; // 아이템이 스피드/점프력 중 어떤 효과를 가지는지 결정
     public float value;         // 얼마만큼 회복시켜 줄지 값
 }
 
@@ -31,7 +30,7 @@ public class ItemDataConsumable
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")] // 인스펙터에서 ScriptableObject로 생성 가능하게
 public class ItemData : ScriptableObject
 {
-    [Header("Info")]    // 인스펙터에서 UI 그룹 나누기
+    [Header("Info")]   
     public string displayName;  // 아이템 이름
     public string description;  // 아이템 설명
     public ItemType type;       // 아이템 유형 (장비, 소비, 자원)
@@ -46,5 +45,5 @@ public class ItemData : ScriptableObject
     public ItemDataConsumable[] consumables;    // 소비형 아이템이 여러 개의 효과를 가질 수 있도록 배열로 저장 (ex. 체력 + 배고픔 회복)
     
     [Header("Equip")]
-    public GameObject equipPrefab;
+    public GameObject equipPrefab;  // 장착 아이템 프리팹 정보
 }

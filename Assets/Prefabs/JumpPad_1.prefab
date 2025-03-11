@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7591239993424951008}
   - component: {fileID: 8421887093402071798}
   - component: {fileID: 1825593950242768890}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: drain 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4048283158004770346}
   - component: {fileID: 8009634076012559401}
   - component: {fileID: 1320247118413116116}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: JumpPad_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,8 +137,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.895772, y: 0.07503104, z: 0.95976305}
-  m_Center: {x: -0.0016722679, y: 0.043787837, z: -0.020118475}
+  m_Size: {x: 0.7729559, y: 0.028798103, z: 0.7541971}
+  m_Center: {x: -0.002708912, y: 0.020671368, z: 0.0078344345}
 --- !u!54 &8009634076012559401
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -178,4 +178,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd950c3bc14e245528e88d362f0d4e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 635f4f353280d421aa34fc57930be42d, type: 2}
   jumpForce: 1000

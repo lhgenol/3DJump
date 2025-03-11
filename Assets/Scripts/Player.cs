@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public ItemData itemData;           // ItemObject의 아이템 데이터 ItemDeta에다 넘겨주기(인터렉션 되면)
     public Action addItem;              // addItem이라는 델리게이트에 구독이 되어 있는 걸 실행시켜 주게 세팅
 
-    public Transform dropPosition;
+    public Transform dropPosition;      // 아이템이 버려지는 위치
     
     public void Awake()
     {
